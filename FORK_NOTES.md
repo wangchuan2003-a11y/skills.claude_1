@@ -16,3 +16,7 @@ python3 -m unittest discover -s tests -v
 ```
 
 Review upstream diffs before syncing. Do not blindly synchronize and immediately enable every upstream skill; test these local protections again after a merge. Updating this checkout changes the content used by its existing symlinks.
+
+## 上游发布工作流
+
+继承的 `Release` 工作流使用上游包名、变更日志地址和待发布 changeset，仅在 `mattpocock/skills` 运行。本 Fork 的安全补丁合并后执行 `link-safety.yml`，不会自动生成上游版本 PR 或发布标签。若未来要维护独立版本，应先配置自己的包信息、变更记录和发布规则，再启用对应流程。
