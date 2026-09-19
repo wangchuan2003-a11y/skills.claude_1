@@ -9,6 +9,9 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   release:
+    # This inherited release configuration targets the upstream package.
+    # Forks keep running link-safety.yml without publishing upstream changesets.
+    if: github.repository == 'mattpocock/skills'
     name: Version
     runs-on: ubuntu-latest
     permissions:
